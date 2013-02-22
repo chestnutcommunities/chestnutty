@@ -1,6 +1,6 @@
 <?php
 
-function chestnut_adsense_setup_uploadify() {
+function chestnutty_setup_uploadify() {
     $uploadPathInfo = wp_upload_dir();
     $wpThemeUrl = str_replace(site_url(), '', get_bloginfo('template_directory'));
 
@@ -24,17 +24,17 @@ jQuery(document).ready(function() {
         "rollover": true,
         "onInit": function() {
             function delayed() {
-                if (jQuery("#chad-logo-filename").val() !== "") {
-                    jQuery("#chad-logoUploader").css("display", "none");
+                if (jQuery("#chestnutty-logo-filename").val() !== "") {
+                    jQuery("#chestnutty-logoUploader").css("display", "none");
                 }
-                if (jQuery("#chad-favicon-filename").val() !== "") {
-                    jQuery("#chad-faviconUploader").css("display", "none");
+                if (jQuery("#chestnutty-favicon-filename").val() !== "") {
+                    jQuery("#chestnutty-faviconUploader").css("display", "none");
                 }
-                if (jQuery("#chad-background-tile-image-filename").val() !== "") {
-                    jQuery("#chad-background-tile-imageUploader").css("display", "none");
+                if (jQuery("#chestnutty-background-tile-image-filename").val() !== "") {
+                    jQuery("#chestnutty-background-tile-imageUploader").css("display", "none");
                 }
-                if (jQuery("#chad-bullet-icon-filename").val() !== "") {
-                    jQuery("#chad-bullet-iconUploader").css("display", "none");
+                if (jQuery("#chestnutty-bullet-icon-filename").val() !== "") {
+                    jQuery("#chestnutty-bullet-iconUploader").css("display", "none");
                 }
             }
             setTimeout(delayed, 100);
@@ -82,21 +82,21 @@ jQuery(document).ready(function() {
         });
     }
     
-    logoUploaderSettings["onComplete"] = getOnComplete("#chad-logo");
-    faviconUploaderSettings["onComplete"] = getOnComplete("#chad-favicon");
-    tileUploaderSettings["onComplete"] = getOnComplete("#chad-background-tile-image");
-    bulletUploaderSettings["onComplete"] = getOnComplete("#chad-bullet-icon");
+    logoUploaderSettings["onComplete"] = getOnComplete("#chestnutty-logo");
+    faviconUploaderSettings["onComplete"] = getOnComplete("#chestnutty-favicon");
+    tileUploaderSettings["onComplete"] = getOnComplete("#chestnutty-background-tile-image");
+    bulletUploaderSettings["onComplete"] = getOnComplete("#chestnutty-bullet-icon");
     
     // initialise uploadify
-    jQuery("#chad-logo").uploadify(logoUploaderSettings);
-    jQuery("#chad-favicon").uploadify(faviconUploaderSettings);
-    jQuery("#chad-background-tile-image").uploadify(tileUploaderSettings);
-    jQuery("#chad-bullet-icon").uploadify(bulletUploaderSettings);
+    jQuery("#chestnutty-logo").uploadify(logoUploaderSettings);
+    jQuery("#chestnutty-favicon").uploadify(faviconUploaderSettings);
+    jQuery("#chestnutty-background-tile-image").uploadify(tileUploaderSettings);
+    jQuery("#chestnutty-bullet-icon").uploadify(bulletUploaderSettings);
     
-    prepareUploaderReset("#chad-logo");
-    prepareUploaderReset("#chad-favicon");
-    prepareUploaderReset("#chad-background-tile-image");
-    prepareUploaderReset("#chad-bullet-icon");
+    prepareUploaderReset("#chestnutty-logo");
+    prepareUploaderReset("#chestnutty-favicon");
+    prepareUploaderReset("#chestnutty-background-tile-image");
+    prepareUploaderReset("#chestnutty-bullet-icon");
 });
 
 // ]]>
@@ -106,8 +106,8 @@ JAVASCRIPT;
     echo $content;
 }
 
-function chestnut_adsense_show_color_picker($name, $label, $value) {
-    $label = __($label, 'chestnut-adsense');
+function chestnutty_show_color_picker($name, $label, $value) {
+    $label = __($label, 'chestnutty');
     $picker = $name.'-picker';
     
     $content = <<<HTML
@@ -128,43 +128,43 @@ HTML;
     echo $content;
 }
 
-function chestnut_adsense_general_options_update() {
-    update_option('chad-account-id', trim($_POST['chad-account-id']));
-    update_option('chad-id-728x90', trim($_POST['chad-id-728x90']));
-    update_option('chad-id-468x60', trim($_POST['chad-id-468x60']));
-    update_option('chad-id-468x15', trim($_POST['chad-id-468x15']));
-    update_option('chad-id-200x90', trim($_POST['chad-id-200x90']));
-    update_option('chad-id-300x250', trim($_POST['chad-id-300x250']));
-    update_option('chad-banner-font', $_POST['chad-banner-font']);
-    update_option('chad-header-font', $_POST['chad-header-font']);
-    update_option('chad-body-font', $_POST['chad-body-font']);
-    update_option('chad-logo', $_POST['chad-logo-filename']);
-    update_option('chad-favicon', $_POST['chad-favicon-filename']);
-    update_option('chad-cast-shadow', $_POST['chad-cast-shadow']);
-    update_option('chad-background-color', $_POST['chad-background-color']);
-    update_option('chad-background-tile-image', $_POST['chad-background-tile-image-filename']);
-    update_option('chad-banner-color', $_POST['chad-banner-color']);
-    update_option('chad-cast-shadow-under-header', $_POST['chad-cast-shadow-under-header']);
-    update_option('chad-header-shadow-color', $_POST['chad-header-shadow-color']);
-    update_option('chad-link-color-normal', $_POST['chad-link-color-normal']);
-    update_option('chad-link-color-hover', $_POST['chad-link-color-hover']);
-    update_option('chad-banner-color-1', $_POST['chad-banner-color-1']);
-    update_option('chad-banner-color-2', $_POST['chad-banner-color-2']);
-    update_option('chad-menu-color-normal-1', $_POST['chad-menu-color-normal-1']);
-    update_option('chad-menu-color-normal-2', $_POST['chad-menu-color-normal-2']);
-    update_option('chad-menu-color-hover-1', $_POST['chad-menu-color-hover-1']);
-    update_option('chad-menu-color-hover-2', $_POST['chad-menu-color-hover-2']);
-    update_option('chad-menu-color-selected-1', $_POST['chad-menu-color-selected-1']);
-    update_option('chad-menu-color-selected-2', $_POST['chad-menu-color-selected-2']);
-    update_option('chad-button-color', $_POST['chad-button-color']);
-    update_option('chad-bullet-icon', $_POST['chad-bullet-icon-filename']);
+function chestnutty_general_options_update() {
+    update_option('chestnutty-account-id', trim($_POST['chestnutty-account-id']));
+    update_option('chestnutty-id-728x90', trim($_POST['chestnutty-id-728x90']));
+    update_option('chestnutty-id-468x60', trim($_POST['chestnutty-id-468x60']));
+    update_option('chestnutty-id-468x15', trim($_POST['chestnutty-id-468x15']));
+    update_option('chestnutty-id-200x90', trim($_POST['chestnutty-id-200x90']));
+    update_option('chestnutty-id-300x250', trim($_POST['chestnutty-id-300x250']));
+    update_option('chestnutty-banner-font', $_POST['chestnutty-banner-font']);
+    update_option('chestnutty-header-font', $_POST['chestnutty-header-font']);
+    update_option('chestnutty-body-font', $_POST['chestnutty-body-font']);
+    update_option('chestnutty-logo', $_POST['chestnutty-logo-filename']);
+    update_option('chestnutty-favicon', $_POST['chestnutty-favicon-filename']);
+    update_option('chestnutty-cast-shadow', $_POST['chestnutty-cast-shadow']);
+    update_option('chestnutty-background-color', $_POST['chestnutty-background-color']);
+    update_option('chestnutty-background-tile-image', $_POST['chestnutty-background-tile-image-filename']);
+    update_option('chestnutty-banner-color', $_POST['chestnutty-banner-color']);
+    update_option('chestnutty-cast-shadow-under-header', $_POST['chestnutty-cast-shadow-under-header']);
+    update_option('chestnutty-header-shadow-color', $_POST['chestnutty-header-shadow-color']);
+    update_option('chestnutty-link-color-normal', $_POST['chestnutty-link-color-normal']);
+    update_option('chestnutty-link-color-hover', $_POST['chestnutty-link-color-hover']);
+    update_option('chestnutty-banner-color-1', $_POST['chestnutty-banner-color-1']);
+    update_option('chestnutty-banner-color-2', $_POST['chestnutty-banner-color-2']);
+    update_option('chestnutty-menu-color-normal-1', $_POST['chestnutty-menu-color-normal-1']);
+    update_option('chestnutty-menu-color-normal-2', $_POST['chestnutty-menu-color-normal-2']);
+    update_option('chestnutty-menu-color-hover-1', $_POST['chestnutty-menu-color-hover-1']);
+    update_option('chestnutty-menu-color-hover-2', $_POST['chestnutty-menu-color-hover-2']);
+    update_option('chestnutty-menu-color-selected-1', $_POST['chestnutty-menu-color-selected-1']);
+    update_option('chestnutty-menu-color-selected-2', $_POST['chestnutty-menu-color-selected-2']);
+    update_option('chestnutty-button-color', $_POST['chestnutty-button-color']);
+    update_option('chestnutty-bullet-icon', $_POST['chestnutty-bullet-icon-filename']);
 }
 
-function chestnut_adsense_general_options_page() {
+function chestnutty_general_options_page() {
     $updated = false;
     
     if (isset($_POST['submit-to-update'])) {
-        chestnut_adsense_general_options_update();
+        chestnutty_general_options_update();
         $updated = true;
     }
 ?>
@@ -176,15 +176,15 @@ function chestnut_adsense_general_options_page() {
 <?php
     }
     
-    $bannerFont = get_option('chad-banner-font', CHAD_BANNER_FONT);
-    $headerFont = get_option('chad-header-font', CHAD_HEADER_FONT);
-    $bodyFont = get_option('chad-body-font', CHAD_BODY_FONT);
-    $logo = get_option('chad-logo', CHAD_LOGO);
-    $favicon = get_option('chad-favicon', CHAD_FAVICON);
-    $tile = get_option('chad-background-tile-image', CHAD_BACKGROUND_TILE_IMAGE);
-    $bullet = get_option('chad-bullet-icon', CHAD_BULLET_ICON);
-    $castShadow = get_option('chad-cast-shadow', CHAD_CAST_SHADOW);
-    $castShadowUnderHeader = get_option('chad-cast-shadow-under-header', CHAD_CAST_SHADOW_UNDER_HEADER);
+    $bannerFont = get_option('chestnutty-banner-font', CHESTNUTTY_BANNER_FONT);
+    $headerFont = get_option('chestnutty-header-font', CHESTNUTTY_HEADER_FONT);
+    $bodyFont = get_option('chestnutty-body-font', CHESTNUTTY_BODY_FONT);
+    $logo = get_option('chestnutty-logo', CHESTNUTTY_LOGO);
+    $favicon = get_option('chestnutty-favicon', CHESTNUTTY_FAVICON);
+    $tile = get_option('chestnutty-background-tile-image', CHESTNUTTY_BACKGROUND_TILE_IMAGE);
+    $bullet = get_option('chestnutty-bullet-icon', CHESTNUTTY_BULLET_ICON);
+    $castShadow = get_option('chestnutty-cast-shadow', CHESTNUTTY_CAST_SHADOW);
+    $castShadowUnderHeader = get_option('chestnutty-cast-shadow-under-header', CHESTNUTTY_CAST_SHADOW_UNDER_HEADER);
     
     $logoDisplay = $logo ? '' : ' style="display: none;"';
     $faviconDisplay = $favicon ? '' : ' style="display: none;"';
@@ -196,265 +196,265 @@ function chestnut_adsense_general_options_page() {
     
 ?>
     <div id="icon-options-general" class="icon32"><br /></div>
-    <h2><?php _e('Chestnut Adsense Theme Options', 'chestnut-adsense'); ?></h2>
+    <h2><?php _e('Chestnut Adsense Theme Options', 'chestnutty'); ?></h2>
     
     <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
     <div class="form">
         <div class="head">
-            <h3><?php _e('AdSense account', 'chestnut-adsense'); ?></h3>
+            <h3><?php _e('AdSense account', 'chestnutty'); ?></h3>
         </div>
-        <div class="row text" id="section-chad-account-id">
-            <label for="chad-account-id">
-                <?php _e('ID', 'chestnut-adsense'); ?> <span class="note"><?php _e('(leave blank to disable)', 'chestnut-adsense'); ?></span>:
+        <div class="row text" id="section-chestnutty-account-id">
+            <label for="chestnutty-account-id">
+                <?php _e('ID', 'chestnutty'); ?> <span class="note"><?php _e('(leave blank to disable)', 'chestnutty'); ?></span>:
             </label>
-            <input type="text" name="chad-account-id" id="chad-account-id" value="<?php echo get_option('chad-account-id', '') ?>" />
+            <input type="text" name="chestnutty-account-id" id="chestnutty-account-id" value="<?php echo get_option('chestnutty-account-id', '') ?>" />
         </div>
         <div class="head">
-            <h3><?php _e('Ad units', 'chestnut-adsense'); ?></h3>
+            <h3><?php _e('Ad units', 'chestnutty'); ?></h3>
         </div>
-        <div class="row text" id="section-chad-id-728x90">
-            <label for="chad-id-728x90">
-                <?php _e('Leaderboard (728 x 90):', 'chestnut-adsense'); ?>
+        <div class="row text" id="section-chestnutty-id-728x90">
+            <label for="chestnutty-id-728x90">
+                <?php _e('Leaderboard (728 x 90):', 'chestnutty'); ?>
             </label>
-            <input type="text" name="chad-id-728x90" id="chad-id-728x90" value="<?php echo get_option('chad-id-728x90', '') ?>" />
+            <input type="text" name="chestnutty-id-728x90" id="chestnutty-id-728x90" value="<?php echo get_option('chestnutty-id-728x90', '') ?>" />
         </div>
-        <div class="row text" id="section-chad-id-468x60">
-            <label for="chad-id-468x60">
-                <?php _e('Banner (468 x 60):', 'chestnut-adsense'); ?>
+        <div class="row text" id="section-chestnutty-id-468x60">
+            <label for="chestnutty-id-468x60">
+                <?php _e('Banner (468 x 60):', 'chestnutty'); ?>
             </label>
-            <input type="text" name="chad-id-468x60" id="chad-id-468x60" value="<?php echo get_option('chad-id-468x60', '') ?>" />
+            <input type="text" name="chestnutty-id-468x60" id="chestnutty-id-468x60" value="<?php echo get_option('chestnutty-id-468x60', '') ?>" />
         </div>
-        <div class="row text" id="section-chad-id-468x15">
-            <label for="chad-id-468x15">
-                <?php _e('Horizontal Medium (468 x 15):', 'chestnut-adsense'); ?>
+        <div class="row text" id="section-chestnutty-id-468x15">
+            <label for="chestnutty-id-468x15">
+                <?php _e('Horizontal Medium (468 x 15):', 'chestnutty'); ?>
             </label>
-            <input type="text" name="chad-id-468x15" id="chad-id-468x15" value="<?php echo get_option('chad-id-468x15', '') ?>" />
+            <input type="text" name="chestnutty-id-468x15" id="chestnutty-id-468x15" value="<?php echo get_option('chestnutty-id-468x15', '') ?>" />
         </div>
-        <div class="row text" id="section-chad-id-200x90">
-            <label for="chad-id-200x90">
-                <?php _e('Vertical X-Large (200 x 90):', 'chestnut-adsense'); ?>
+        <div class="row text" id="section-chestnutty-id-200x90">
+            <label for="chestnutty-id-200x90">
+                <?php _e('Vertical X-Large (200 x 90):', 'chestnutty'); ?>
             </label>
-            <input type="text" name="chad-id-200x90" id="chad-id-200x90" value="<?php echo get_option('chad-id-200x90', '') ?>" />
+            <input type="text" name="chestnutty-id-200x90" id="chestnutty-id-200x90" value="<?php echo get_option('chestnutty-id-200x90', '') ?>" />
         </div>
-        <div class="row text" id="section-chad-id-300x250">
-            <label for="chad-id-300x250">
-                <?php _e('Medium Recetangle (300 x 250):', 'chestnut-adsense'); ?>
+        <div class="row text" id="section-chestnutty-id-300x250">
+            <label for="chestnutty-id-300x250">
+                <?php _e('Medium Recetangle (300 x 250):', 'chestnutty'); ?>
             </label>
-            <input type="text" name="chad-id-300x250" id="chad-id-300x250" value="<?php echo get_option('chad-id-300x250', '') ?>" />
+            <input type="text" name="chestnutty-id-300x250" id="chestnutty-id-300x250" value="<?php echo get_option('chestnutty-id-300x250', '') ?>" />
         </div>
         <div class="head">
-            <h3><?php _e('Theme Customizations', 'chestnut-adsense'); ?></h3>
+            <h3><?php _e('Theme Customizations', 'chestnutty'); ?></h3>
         </div>
         <div class="row file">
             <label>
-                <?php _e('Logo', 'chestnut-adsense'); ?> <span class="note"><?php _e('(80 x 80)', 'chestnut-adsense'); ?></span>:
+                <?php _e('Logo', 'chestnutty'); ?> <span class="note"><?php _e('(80 x 80)', 'chestnutty'); ?></span>:
             </label>
-            <img class="uploaded-image" id="chad-logo-display" src="<?php echo get_option('chad-logo', CHAD_LOGO) ?>"<?php echo $logoDisplay ?> />
-            <input type="button" id="chad-logo-remove" class="remove-file"<?php echo $logoDisplay ?> />
-            <input type="file" name="chad-logo" id="chad-logo" />
-            <input type="hidden" name="chad-logo-filename" id="chad-logo-filename" value="<?php echo get_option('chad-logo', CHAD_LOGO) ?>" />
+            <img class="uploaded-image" id="chestnutty-logo-display" src="<?php echo get_option('chestnutty-logo', CHESTNUTTY_LOGO) ?>"<?php echo $logoDisplay ?> />
+            <input type="button" id="chestnutty-logo-remove" class="remove-file"<?php echo $logoDisplay ?> />
+            <input type="file" name="chestnutty-logo" id="chestnutty-logo" />
+            <input type="hidden" name="chestnutty-logo-filename" id="chestnutty-logo-filename" value="<?php echo get_option('chestnutty-logo', CHESTNUTTY_LOGO) ?>" />
         </div>
         <div class="row file">
             <label>
-                <?php _e('Favicon', 'chestnut-adsense'); ?> <span class="note"><?php _e('(16 x 16)', 'chestnut-adsense'); ?></span>:
+                <?php _e('Favicon', 'chestnutty'); ?> <span class="note"><?php _e('(16 x 16)', 'chestnutty'); ?></span>:
             </label>
-            <img class="uploaded-image" id="chad-logo-display" src="<?php echo get_option('chad-favicon', CHAD_FAVICON) ?>"<?php echo $faviconDisplay ?> />
-            <input type="button" id="chad-favicon-remove" class="remove-file"<?php echo $faviconDisplay ?> />
-            <input type="file" name="chad-favicon" id="chad-favicon" />
-            <input type="hidden" name="chad-favicon-filename" id="chad-favicon-filename" value="<?php echo get_option('chad-favicon', CHAD_FAVICON) ?>" />
+            <img class="uploaded-image" id="chestnutty-logo-display" src="<?php echo get_option('chestnutty-favicon', CHESTNUTTY_FAVICON) ?>"<?php echo $faviconDisplay ?> />
+            <input type="button" id="chestnutty-favicon-remove" class="remove-file"<?php echo $faviconDisplay ?> />
+            <input type="file" name="chestnutty-favicon" id="chestnutty-favicon" />
+            <input type="hidden" name="chestnutty-favicon-filename" id="chestnutty-favicon-filename" value="<?php echo get_option('chestnutty-favicon', CHESTNUTTY_FAVICON) ?>" />
         </div>
         <div class="row file">
             <label>
-                <?php _e('Background tile image', 'chestnut-adsense'); ?> <span class="note"><?php _e('(2MB max.)', 'chestnut-adsense'); ?></span>:
+                <?php _e('Background tile image', 'chestnutty'); ?> <span class="note"><?php _e('(2MB max.)', 'chestnutty'); ?></span>:
             </label>
-            <img class="uploaded-image" id="chad-background-tile-image-display" src="<?php echo get_option('chad-background-tile-image', CHAD_BACKGROUND_TILE_IMAGE) ?>"<?php echo $tileDisplay ?> />
-            <input type="button" id="chad-background-tile-image-remove" class="remove-file"<?php echo $tileDisplay ?> />
-            <input type="file" name="chad-background-tile-image" id="chad-background-tile-image" />
-            <input type="hidden" name="chad-background-tile-image-filename" id="chad-background-tile-image-filename" value="<?php echo get_option('chad-background-tile-image', CHAD_BACKGROUND_TILE_IMAGE) ?>" />
+            <img class="uploaded-image" id="chestnutty-background-tile-image-display" src="<?php echo get_option('chestnutty-background-tile-image', CHESTNUTTY_BACKGROUND_TILE_IMAGE) ?>"<?php echo $tileDisplay ?> />
+            <input type="button" id="chestnutty-background-tile-image-remove" class="remove-file"<?php echo $tileDisplay ?> />
+            <input type="file" name="chestnutty-background-tile-image" id="chestnutty-background-tile-image" />
+            <input type="hidden" name="chestnutty-background-tile-image-filename" id="chestnutty-background-tile-image-filename" value="<?php echo get_option('chestnutty-background-tile-image', CHESTNUTTY_BACKGROUND_TILE_IMAGE) ?>" />
         </div>
         
-        <?php chestnut_adsense_show_color_picker('chad-background-color', 'Background color', get_option('chad-background-color', CHAD_BACKGROUND_COLOR)); ?>
+        <?php chestnutty_show_color_picker('chestnutty-background-color', 'Background color', get_option('chestnutty-background-color', CHESTNUTTY_BACKGROUND_COLOR)); ?>
         
         <div class="row checkbox">
-            <input type="checkbox" value="1" id="chad-cast-shadow" name="chad-cast-shadow"<?php echo $castShadowChecked; ?> />
-            <label for="chad-cast-shadow">
-                <?php _e('Cast a shadow around the wrapper', 'chestnut-adsense'); ?>
+            <input type="checkbox" value="1" id="chestnutty-cast-shadow" name="chestnutty-cast-shadow"<?php echo $castShadowChecked; ?> />
+            <label for="chestnutty-cast-shadow">
+                <?php _e('Cast a shadow around the wrapper', 'chestnutty'); ?>
             </label>
         </div>
         
-        <div class="row radio" id="section-chad-banner-font">
-            <label for="chad-banner-font">
+        <div class="row radio" id="section-chestnutty-banner-font">
+            <label for="chestnutty-banner-font">
                 Banner font:
             </label>
             <div class="radio-list">
                 <ul>
                     <li>
-                        <input type="radio" id="chad-banner-font-comfortaa"<?php if ($bannerFont == 'comfortaa') { echo ' checked="checked"'; } ?> name="chad-banner-font" value="comfortaa" />
-                        <label for="chad-banner-font-comfortaa">Comfortaa</label>
+                        <input type="radio" id="chestnutty-banner-font-comfortaa"<?php if ($bannerFont == 'comfortaa') { echo ' checked="checked"'; } ?> name="chestnutty-banner-font" value="comfortaa" />
+                        <label for="chestnutty-banner-font-comfortaa">Comfortaa</label>
                     </li>
                     <li>
-                        <input type="radio" id="chad-banner-font-commando"<?php if ($bannerFont == 'commando') { echo ' checked="checked"'; } ?> name="chad-banner-font" value="commando" />
-                        <label for="chad-banner-font-commando">Commando</label>
+                        <input type="radio" id="chestnutty-banner-font-commando"<?php if ($bannerFont == 'commando') { echo ' checked="checked"'; } ?> name="chestnutty-banner-font" value="commando" />
+                        <label for="chestnutty-banner-font-commando">Commando</label>
                     </li>
                     <li>
-                        <input type="radio" id="chad-banner-font-days"<?php if ($bannerFont == 'days') { echo ' checked="checked"'; } ?> name="chad-banner-font" value="days" />
-                        <label for="chad-banner-font-days">Days</label>
+                        <input type="radio" id="chestnutty-banner-font-days"<?php if ($bannerFont == 'days') { echo ' checked="checked"'; } ?> name="chestnutty-banner-font" value="days" />
+                        <label for="chestnutty-banner-font-days">Days</label>
                     </li>
                     <li>
-                        <input type="radio" id="chad-banner-font-gudea"<?php if ($bannerFont == 'gudea') { echo ' checked="checked"'; } ?> name="chad-banner-font" value="gudea" />
-                        <label for="chad-banner-font-gudea">Gudea</label>
+                        <input type="radio" id="chestnutty-banner-font-gudea"<?php if ($bannerFont == 'gudea') { echo ' checked="checked"'; } ?> name="chestnutty-banner-font" value="gudea" />
+                        <label for="chestnutty-banner-font-gudea">Gudea</label>
                     </li>
                     <li>
-                        <input type="radio" id="chad-banner-font-journal"<?php if ($bannerFont == 'journal') { echo ' checked="checked"'; } ?> name="chad-banner-font" value="journal" />
-                        <label for="chad-banner-font-journal">Journal</label>
+                        <input type="radio" id="chestnutty-banner-font-journal"<?php if ($bannerFont == 'journal') { echo ' checked="checked"'; } ?> name="chestnutty-banner-font" value="journal" />
+                        <label for="chestnutty-banner-font-journal">Journal</label>
                     </li>
                     <li>
-                        <input type="radio" id="chad-banner-font-medio"<?php if ($bannerFont == 'medio') { echo ' checked="checked"'; } ?> name="chad-banner-font" value="medio" />
-                        <label for="chad-banner-font-medio">Medio</label>
+                        <input type="radio" id="chestnutty-banner-font-medio"<?php if ($bannerFont == 'medio') { echo ' checked="checked"'; } ?> name="chestnutty-banner-font" value="medio" />
+                        <label for="chestnutty-banner-font-medio">Medio</label>
                     </li>
                     <li>
-                        <input type="radio" id="chad-banner-font-pacifico"<?php if ($bannerFont == 'pacifico') { echo ' checked="checked"'; } ?> name="chad-banner-font" value="pacifico" />
-                        <label for="chad-banner-font-pacifico">Pacifico</label>
+                        <input type="radio" id="chestnutty-banner-font-pacifico"<?php if ($bannerFont == 'pacifico') { echo ' checked="checked"'; } ?> name="chestnutty-banner-font" value="pacifico" />
+                        <label for="chestnutty-banner-font-pacifico">Pacifico</label>
                     </li>
                     <li>
-                        <input type="radio" id="chad-banner-font-spincycle"<?php if ($bannerFont == 'spincycle') { echo ' checked="checked"'; } ?> name="chad-banner-font" value="spincycle" />
-                        <label for="chad-banner-font-spincycle">Spincycle</label>
+                        <input type="radio" id="chestnutty-banner-font-spincycle"<?php if ($bannerFont == 'spincycle') { echo ' checked="checked"'; } ?> name="chestnutty-banner-font" value="spincycle" />
+                        <label for="chestnutty-banner-font-spincycle">Spincycle</label>
                     </li>
                     <li>
-                        <input type="radio" id="chad-banner-font-spincycle3d"<?php if ($bannerFont == 'spincycle3d') { echo ' checked="checked"'; } ?> name="chad-banner-font" value="spincycle3d" />
-                        <label for="chad-banner-font-spincycle3d">Spincycle 3D</label>
+                        <input type="radio" id="chestnutty-banner-font-spincycle3d"<?php if ($bannerFont == 'spincycle3d') { echo ' checked="checked"'; } ?> name="chestnutty-banner-font" value="spincycle3d" />
+                        <label for="chestnutty-banner-font-spincycle3d">Spincycle 3D</label>
                     </li>
                     <li>
-                        <input type="radio" id="chad-banner-font-greyscale"<?php if ($bannerFont == 'greyscale') { echo ' checked="checked"'; } ?> name="chad-banner-font" value="greyscale" />
-                        <label for="chad-banner-font-greyscale">Greyscale (default)</label>
+                        <input type="radio" id="chestnutty-banner-font-greyscale"<?php if ($bannerFont == 'greyscale') { echo ' checked="checked"'; } ?> name="chestnutty-banner-font" value="greyscale" />
+                        <label for="chestnutty-banner-font-greyscale">Greyscale (default)</label>
                     </li>
                 </ul>
             </div>
         </div>
-        <div class="row radio" id="section-chad-header-font">
-            <label for="chad-header-font">
+        <div class="row radio" id="section-chestnutty-header-font">
+            <label for="chestnutty-header-font">
                 Header font:
             </label>
             <div class="radio-list">
                 <ul>
                     <li>
-                        <input type="radio" id="chad-header-font-comfortaa"<?php if ($headerFont == 'comfortaa') { echo ' checked="checked"'; } ?> name="chad-header-font" value="comfortaa" />
-                        <label for="chad-header-font-comfortaa">Comfortaa</label>
+                        <input type="radio" id="chestnutty-header-font-comfortaa"<?php if ($headerFont == 'comfortaa') { echo ' checked="checked"'; } ?> name="chestnutty-header-font" value="comfortaa" />
+                        <label for="chestnutty-header-font-comfortaa">Comfortaa</label>
                     </li>
                     <li>
-                        <input type="radio" id="chad-header-font-commando"<?php if ($headerFont == 'commando') { echo ' checked="checked"'; } ?> name="chad-header-font" value="commando" />
-                        <label for="chad-header-font-commando">Commando</label>
+                        <input type="radio" id="chestnutty-header-font-commando"<?php if ($headerFont == 'commando') { echo ' checked="checked"'; } ?> name="chestnutty-header-font" value="commando" />
+                        <label for="chestnutty-header-font-commando">Commando</label>
                     </li>
                     <li>
-                        <input type="radio" id="chad-header-font-days"<?php if ($headerFont == 'days') { echo ' checked="checked"'; } ?> name="chad-header-font" value="days" />
-                        <label for="chad-header-font-days">Days</label>
+                        <input type="radio" id="chestnutty-header-font-days"<?php if ($headerFont == 'days') { echo ' checked="checked"'; } ?> name="chestnutty-header-font" value="days" />
+                        <label for="chestnutty-header-font-days">Days</label>
                     </li>
                     <li>
-                        <input type="radio" id="chad-header-font-gudea"<?php if ($headerFont == 'gudea') { echo ' checked="checked"'; } ?> name="chad-header-font" value="gudea" />
-                        <label for="chad-header-font-gudea">Gudea</label>
+                        <input type="radio" id="chestnutty-header-font-gudea"<?php if ($headerFont == 'gudea') { echo ' checked="checked"'; } ?> name="chestnutty-header-font" value="gudea" />
+                        <label for="chestnutty-header-font-gudea">Gudea</label>
                     </li>
                     <li>
-                        <input type="radio" id="chad-header-font-journal"<?php if ($headerFont == 'journal') { echo ' checked="checked"'; } ?> name="chad-header-font" value="journal" />
-                        <label for="chad-header-font-journal">Journal</label>
+                        <input type="radio" id="chestnutty-header-font-journal"<?php if ($headerFont == 'journal') { echo ' checked="checked"'; } ?> name="chestnutty-header-font" value="journal" />
+                        <label for="chestnutty-header-font-journal">Journal</label>
                     </li>
                     <li>
-                        <input type="radio" id="chad-header-font-medio"<?php if ($headerFont == 'medio') { echo ' checked="checked"'; } ?> name="chad-header-font" value="medio" />
-                        <label for="chad-header-font-medio">Medio</label>
+                        <input type="radio" id="chestnutty-header-font-medio"<?php if ($headerFont == 'medio') { echo ' checked="checked"'; } ?> name="chestnutty-header-font" value="medio" />
+                        <label for="chestnutty-header-font-medio">Medio</label>
                     </li>
                     <li>
-                        <input type="radio" id="chad-header-font-pacifico"<?php if ($headerFont == 'pacifico') { echo ' checked="checked"'; } ?> name="chad-header-font" value="pacifico" />
-                        <label for="chad-header-font-pacifico">Pacifico</label>
+                        <input type="radio" id="chestnutty-header-font-pacifico"<?php if ($headerFont == 'pacifico') { echo ' checked="checked"'; } ?> name="chestnutty-header-font" value="pacifico" />
+                        <label for="chestnutty-header-font-pacifico">Pacifico</label>
                     </li>
                     <li>
-                        <input type="radio" id="chad-header-font-spincycle"<?php if ($headerFont == 'spincycle') { echo ' checked="checked"'; } ?> name="chad-header-font" value="spincycle" />
-                        <label for="chad-header-font-spincycle">Spincycle</label>
+                        <input type="radio" id="chestnutty-header-font-spincycle"<?php if ($headerFont == 'spincycle') { echo ' checked="checked"'; } ?> name="chestnutty-header-font" value="spincycle" />
+                        <label for="chestnutty-header-font-spincycle">Spincycle</label>
                     </li>
                     <li>
-                        <input type="radio" id="chad-header-font-spincycle3d"<?php if ($headerFont == 'spincycle3d') { echo ' checked="checked"'; } ?> name="chad-header-font" value="spincycle3d" />
-                        <label for="chad-header-font-spincycle3d">Spincycle 3D</label>
+                        <input type="radio" id="chestnutty-header-font-spincycle3d"<?php if ($headerFont == 'spincycle3d') { echo ' checked="checked"'; } ?> name="chestnutty-header-font" value="spincycle3d" />
+                        <label for="chestnutty-header-font-spincycle3d">Spincycle 3D</label>
                     </li>
                     <li>
-                        <input type="radio" id="chad-header-font-greyscale"<?php if ($headerFont == 'greyscale') { echo ' checked="checked"'; } ?> name="chad-header-font" value="greyscale" />
-                        <label for="chad-header-font-greyscale">Greyscale (default)</label>
+                        <input type="radio" id="chestnutty-header-font-greyscale"<?php if ($headerFont == 'greyscale') { echo ' checked="checked"'; } ?> name="chestnutty-header-font" value="greyscale" />
+                        <label for="chestnutty-header-font-greyscale">Greyscale (default)</label>
                     </li>
                 </ul>
             </div>
         </div>
-        <div class="row radio" id="section-chad-body-font">
-            <label for="chad-body-font">
+        <div class="row radio" id="section-chestnutty-body-font">
+            <label for="chestnutty-body-font">
                 Body font:
             </label>
             <div class="radio-list">
                 <ul>
                     <li>
-                        <input type="radio" id="chad-body-font-1"<?php if ($bodyFont == 'comfortaa') { echo ' checked="checked"'; } ?> name="chad-body-font" value="comfortaa" />
-                        <label for="chad-body-font-1">Comfortaa</label>
+                        <input type="radio" id="chestnutty-body-font-1"<?php if ($bodyFont == 'comfortaa') { echo ' checked="checked"'; } ?> name="chestnutty-body-font" value="comfortaa" />
+                        <label for="chestnutty-body-font-1">Comfortaa</label>
                     </li>
                     <li>
-                        <input type="radio" id="chad-body-font-2"<?php if ($bodyFont == 'commando') { echo ' checked="checked"'; } ?> name="chad-body-font" value="commando" />
-                        <label for="chad-body-font-2">Commando</label>
+                        <input type="radio" id="chestnutty-body-font-2"<?php if ($bodyFont == 'commando') { echo ' checked="checked"'; } ?> name="chestnutty-body-font" value="commando" />
+                        <label for="chestnutty-body-font-2">Commando</label>
                     </li>
                     <li>
-                        <input type="radio" id="chad-body-font-3"<?php if ($bodyFont == 'days') { echo ' checked="checked"'; } ?> name="chad-body-font" value="days" />
-                        <label for="chad-body-font-3">Days</label>
+                        <input type="radio" id="chestnutty-body-font-3"<?php if ($bodyFont == 'days') { echo ' checked="checked"'; } ?> name="chestnutty-body-font" value="days" />
+                        <label for="chestnutty-body-font-3">Days</label>
                     </li>
                     <li>
-                        <input type="radio" id="chad-body-font-4"<?php if ($bodyFont == 'greyscale') { echo ' checked="checked"'; } ?> name="chad-body-font" value="greyscale" />
-                        <label for="chad-body-font-4">Greyscale</label>
+                        <input type="radio" id="chestnutty-body-font-4"<?php if ($bodyFont == 'greyscale') { echo ' checked="checked"'; } ?> name="chestnutty-body-font" value="greyscale" />
+                        <label for="chestnutty-body-font-4">Greyscale</label>
                     </li>
                     <li>
-                        <input type="radio" id="chad-body-font-5"<?php if ($bodyFont == 'medio') { echo ' checked="checked"'; } ?> name="chad-body-font" value="medio" />
-                        <label for="chad-body-font-5">Medio</label>
+                        <input type="radio" id="chestnutty-body-font-5"<?php if ($bodyFont == 'medio') { echo ' checked="checked"'; } ?> name="chestnutty-body-font" value="medio" />
+                        <label for="chestnutty-body-font-5">Medio</label>
                     </li>
                     <li>
-                        <input type="radio" id="chad-body-font-6"<?php if ($bodyFont == 'spincycle') { echo ' checked="checked"'; } ?> name="chad-body-font" value="spincycle" />
-                        <label for="chad-body-font-6">Spincycle</label>
+                        <input type="radio" id="chestnutty-body-font-6"<?php if ($bodyFont == 'spincycle') { echo ' checked="checked"'; } ?> name="chestnutty-body-font" value="spincycle" />
+                        <label for="chestnutty-body-font-6">Spincycle</label>
                     </li>
                     <li>
-                        <input type="radio" id="chad-body-font-7"<?php if ($bodyFont == 'spincycle3d') { echo ' checked="checked"'; } ?> name="chad-body-font" value="spincycle3d" />
-                        <label for="chad-body-font-7">Spincycle 3D</label>
+                        <input type="radio" id="chestnutty-body-font-7"<?php if ($bodyFont == 'spincycle3d') { echo ' checked="checked"'; } ?> name="chestnutty-body-font" value="spincycle3d" />
+                        <label for="chestnutty-body-font-7">Spincycle 3D</label>
                     </li>
                     <li>
-                        <input type="radio" id="chad-body-font-8"<?php if ($bodyFont == 'gudea') { echo ' checked="checked"'; } ?> name="chad-body-font" value="gudea" />
-                        <label for="chad-body-font-8">Gudea (default)</label>
+                        <input type="radio" id="chestnutty-body-font-8"<?php if ($bodyFont == 'gudea') { echo ' checked="checked"'; } ?> name="chestnutty-body-font" value="gudea" />
+                        <label for="chestnutty-body-font-8">Gudea (default)</label>
                     </li>
                 </ul>
             </div>
         </div>
         
-        <?php chestnut_adsense_show_color_picker('chad-banner-color', 'Banner/Footer font color', get_option('chad-banner-color', CHAD_BANNER_COLOR)); ?>
+        <?php chestnutty_show_color_picker('chestnutty-banner-color', 'Banner/Footer font color', get_option('chestnutty-banner-color', CHESTNUTTY_BANNER_COLOR)); ?>
         
         <div class="row checkbox">
-            <input type="checkbox" value="1" id="chad-cast-shadow-under-header" name="chad-cast-shadow-under-header"<?php echo $castShadowUnderHeaderChecked; ?> />
-            <label for="chad-cast-shadow-under-header">
-                <?php _e('Cast a shadow under the header in the banner', 'chestnut-adsense'); ?>
+            <input type="checkbox" value="1" id="chestnutty-cast-shadow-under-header" name="chestnutty-cast-shadow-under-header"<?php echo $castShadowUnderHeaderChecked; ?> />
+            <label for="chestnutty-cast-shadow-under-header">
+                <?php _e('Cast a shadow under the header in the banner', 'chestnutty'); ?>
             </label>
         </div>
         
-        <?php chestnut_adsense_show_color_picker('chad-header-shadow-color', 'Header shadow color', get_option('chad-header-shadow-color', CHAD_HEADER_SHADOW_COLOR)); ?>
-        <?php chestnut_adsense_show_color_picker('chad-link-color-normal', 'Link color', get_option('chad-link-color-normal', CHAD_LINK_COLOR_NORMAL)); ?>
-        <?php chestnut_adsense_show_color_picker('chad-link-color-hover', 'Link hover color', get_option('chad-link-color-hover', CHAD_LINK_COLOR_HOVER)); ?>
-        <?php chestnut_adsense_show_color_picker('chad-banner-color-1', 'Header and Footer background color 1', get_option('chad-banner-color-1', CHAD_BANNER_COLOR_1)); ?>
-        <?php chestnut_adsense_show_color_picker('chad-banner-color-2', 'Header and Footer background color 2', get_option('chad-banner-color-2', CHAD_BANNER_COLOR_2)); ?>
-        <?php chestnut_adsense_show_color_picker('chad-menu-color-normal-1', 'Menu color 1', get_option('chad-menu-color-normal-1', CHAD_MENU_COLOR_NORMAL_1)); ?>
-        <?php chestnut_adsense_show_color_picker('chad-menu-color-normal-2', 'Menu color 2', get_option('chad-menu-color-normal-2', CHAD_MENU_COLOR_NORMAL_2)); ?>
-        <?php chestnut_adsense_show_color_picker('chad-menu-color-hover-1', 'Menu hover color 1', get_option('chad-menu-color-hover-1', CHAD_MENU_COLOR_HOVER_1)); ?>
-        <?php chestnut_adsense_show_color_picker('chad-menu-color-hover-2', 'Menu hover color 2', get_option('chad-menu-color-hover-2', CHAD_MENU_COLOR_HOVER_2)); ?>
-        <?php chestnut_adsense_show_color_picker('chad-menu-color-selected-1', 'Menu selected color 1', get_option('chad-menu-color-selected-1', CHAD_MENU_COLOR_SELECTED_1)); ?>
-        <?php chestnut_adsense_show_color_picker('chad-menu-color-selected-2', 'Menu selected color 2', get_option('chad-menu-color-selected-2', CHAD_MENU_COLOR_SELECTED_2)); ?>
-        <?php chestnut_adsense_show_color_picker('chad-button-color', 'Button color', get_option('chad-button-color', CHAD_BUTTON_COLOR)); ?>
+        <?php chestnutty_show_color_picker('chestnutty-header-shadow-color', 'Header shadow color', get_option('chestnutty-header-shadow-color', CHESTNUTTY_HEADER_SHADOW_COLOR)); ?>
+        <?php chestnutty_show_color_picker('chestnutty-link-color-normal', 'Link color', get_option('chestnutty-link-color-normal', CHESTNUTTY_LINK_COLOR_NORMAL)); ?>
+        <?php chestnutty_show_color_picker('chestnutty-link-color-hover', 'Link hover color', get_option('chestnutty-link-color-hover', CHESTNUTTY_LINK_COLOR_HOVER)); ?>
+        <?php chestnutty_show_color_picker('chestnutty-banner-color-1', 'Header and Footer background color 1', get_option('chestnutty-banner-color-1', CHESTNUTTY_BANNER_COLOR_1)); ?>
+        <?php chestnutty_show_color_picker('chestnutty-banner-color-2', 'Header and Footer background color 2', get_option('chestnutty-banner-color-2', CHESTNUTTY_BANNER_COLOR_2)); ?>
+        <?php chestnutty_show_color_picker('chestnutty-menu-color-normal-1', 'Menu color 1', get_option('chestnutty-menu-color-normal-1', CHESTNUTTY_MENU_COLOR_NORMAL_1)); ?>
+        <?php chestnutty_show_color_picker('chestnutty-menu-color-normal-2', 'Menu color 2', get_option('chestnutty-menu-color-normal-2', CHESTNUTTY_MENU_COLOR_NORMAL_2)); ?>
+        <?php chestnutty_show_color_picker('chestnutty-menu-color-hover-1', 'Menu hover color 1', get_option('chestnutty-menu-color-hover-1', CHESTNUTTY_MENU_COLOR_HOVER_1)); ?>
+        <?php chestnutty_show_color_picker('chestnutty-menu-color-hover-2', 'Menu hover color 2', get_option('chestnutty-menu-color-hover-2', CHESTNUTTY_MENU_COLOR_HOVER_2)); ?>
+        <?php chestnutty_show_color_picker('chestnutty-menu-color-selected-1', 'Menu selected color 1', get_option('chestnutty-menu-color-selected-1', CHESTNUTTY_MENU_COLOR_SELECTED_1)); ?>
+        <?php chestnutty_show_color_picker('chestnutty-menu-color-selected-2', 'Menu selected color 2', get_option('chestnutty-menu-color-selected-2', CHESTNUTTY_MENU_COLOR_SELECTED_2)); ?>
+        <?php chestnutty_show_color_picker('chestnutty-button-color', 'Button color', get_option('chestnutty-button-color', CHESTNUTTY_BUTTON_COLOR)); ?>
         
         <div class="row file">
             <label>
-                <?php _e('Bullet list item icon', 'chestnut-adsense'); ?> <span class="note"><?php _e('(14 x 14)', 'chestnut-adsense'); ?></span>:
+                <?php _e('Bullet list item icon', 'chestnutty'); ?> <span class="note"><?php _e('(14 x 14)', 'chestnutty'); ?></span>:
             </label>
-            <img class="uploaded-image" id="chad-bullet-icon-display" src="<?php echo get_option('chad-bullet-icon', CHAD_BULLET_ICON) ?>"<?php echo $bulletDisplay ?> />
-            <input type="button" id="chad-bullet-icon-remove" class="remove-file"<?php echo $bulletDisplay ?> />
-            <input type="file" name="chad-bullet-icon" id="chad-bullet-icon" />
-            <input type="hidden" name="chad-bullet-icon-filename" id="chad-bullet-icon-filename" value="<?php echo get_option('chad-bullet-icon', CHAD_BULLET_ICON) ?>" />
+            <img class="uploaded-image" id="chestnutty-bullet-icon-display" src="<?php echo get_option('chestnutty-bullet-icon', CHESTNUTTY_BULLET_ICON) ?>"<?php echo $bulletDisplay ?> />
+            <input type="button" id="chestnutty-bullet-icon-remove" class="remove-file"<?php echo $bulletDisplay ?> />
+            <input type="file" name="chestnutty-bullet-icon" id="chestnutty-bullet-icon" />
+            <input type="hidden" name="chestnutty-bullet-icon-filename" id="chestnutty-bullet-icon-filename" value="<?php echo get_option('chestnutty-bullet-icon', CHESTNUTTY_BULLET_ICON) ?>" />
         </div>
         <div class="form-action">
-            <input type="submit" name="submit-to-update" value="<?php _e('Save', 'chestnut-adsense'); ?>" />
+            <input type="submit" name="submit-to-update" value="<?php _e('Save', 'chestnutty'); ?>" />
         </div>
     </div>
     </form>

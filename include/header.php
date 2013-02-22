@@ -1,6 +1,6 @@
 <?php
 
-function chestnut_adsense_head() {
+function chestnutty_head() {
     /* define font faces */
     $themeDir = get_bloginfo('template_directory');
     
@@ -182,7 +182,7 @@ FONTFACE;
     $styleAdjustment = '';
     $subHeaderAdjustment = '';
     
-    switch (get_option('chad-banner-font', CHAD_BANNER_FONT)) {
+    switch (get_option('chestnutty-banner-font', CHESTNUTTY_BANNER_FONT)) {
         case 'comfortaa':
             $bannerFontFace = $fontFaceComfortaaBold;
             $bannerFont = "'ComfortaaBold', sans-serif";
@@ -289,7 +289,7 @@ ADJUSTMENT;
 ADJUSTMENT;
     }
     
-    switch (get_option('chad-header-font', CHAD_HEADER_FONT)) {
+    switch (get_option('chestnutty-header-font', CHESTNUTTY_HEADER_FONT)) {
         case 'comfortaa':
             $headerFontFace = $fontFaceComfortaaBold;
             $headerFont = "'ComfortaaBold', sans-serif";
@@ -362,7 +362,7 @@ ADJUSTMENT;
             $headerFont = "'GreyscaleBasicBold', sans-serif";
     }
     
-    switch (get_option('chad-body-font', CHAD_BODY_FONT)) {
+    switch (get_option('chestnutty-body-font', CHESTNUTTY_BODY_FONT)) {
         case 'comfortaa':
             $bodyFontFace = $fontFaceComfortaaRegular;
             $bodyFont = "'ComfortaaRegular', sans-serif";
@@ -396,7 +396,7 @@ ADJUSTMENT;
             $bodyFont = "'GudeaRegular', sans-serif";
     }
 ?>
-<link rel="icon" type="image/x-icon" href="<?php render_option('chad-favicon', CHAD_FAVICON); ?>" />
+<link rel="icon" type="image/x-icon" href="<?php render_option('chestnutty-favicon', CHESTNUTTY_FAVICON); ?>" />
 <style type="text/css">
     <?php echo $bannerFontFace; ?>
     <?php echo $headerFontFace; ?>
@@ -404,14 +404,14 @@ ADJUSTMENT;
     
     body {
         font-family: <?php echo $bodyFont; ?>;
-        background: <?php render_option('chad-background-color', CHAD_BACKGROUND_COLOR); ?> url("<?php render_option('chad-background-tile-image', CHAD_BACKGROUND_TILE_IMAGE); ?>") repeat 0 0;
+        background: <?php render_option('chestnutty-background-color', CHESTNUTTY_BACKGROUND_COLOR); ?> url("<?php render_option('chestnutty-background-tile-image', CHESTNUTTY_BACKGROUND_TILE_IMAGE); ?>") repeat 0 0;
     }
     
     h1, h2, h3 {
         font-family: <?php echo $headerFont; ?>;
     }
 <?php
-    if (get_option('chad-cast-shadow', CHAD_CAST_SHADOW) == '1'):
+    if (get_option('chestnutty-cast-shadow', CHESTNUTTY_CAST_SHADOW) == '1'):
 ?>
     #banner {
         box-shadow: -5px 0 5px rgba(0, 0, 0, .1),
@@ -443,19 +443,19 @@ ADJUSTMENT;
         font-family: <?php echo $bannerFont; ?>;
     }
     #banner h2 {
-        color: <?php render_option('chad-banner-color', CHAD_BANNER_COLOR); ?>;
+        color: <?php render_option('chestnutty-banner-color', CHESTNUTTY_BANNER_COLOR); ?>;
     }
     #contentinfo,
     #contentinfo a {
-        color: <?php render_option('chad-banner-color', CHAD_BANNER_COLOR); ?>;
+        color: <?php render_option('chestnutty-banner-color', CHESTNUTTY_BANNER_COLOR); ?>;
     }
 <?php echo $styleAdjustment ?>
     #banner a {
-        color: <?php render_option('chad-banner-color', CHAD_BANNER_COLOR); ?>;
+        color: <?php render_option('chestnutty-banner-color', CHESTNUTTY_BANNER_COLOR); ?>;
 <?php
-    if (get_option('chad-cast-shadow-under-header', CHAD_CAST_SHADOW_UNDER) == '1'):
+    if (get_option('chestnutty-cast-shadow-under-header', CHESTNUTTY_CAST_SHADOW_UNDER) == '1'):
 ?>
-        text-shadow: 1px 1px 0 <?php render_option('chad-header-shadow-color', CHAD_HEADER_SHADOW_COLOR); ?>;
+        text-shadow: 1px 1px 0 <?php render_option('chestnutty-header-shadow-color', CHESTNUTTY_HEADER_SHADOW_COLOR); ?>;
 <?php
     endif;
 ?>
@@ -463,7 +463,7 @@ ADJUSTMENT;
     #banner hgroup {
         /* 96/14 = 6.8571428571428571428571428571429em */
         padding: 1em 0 1em 6.8571428571428571428571428571429em;
-        background: transparent url("<?php render_option('chad-logo', CHAD_LOGO); ?>") no-repeat .57142857142857142857142857142857em center; /* 8/14 = 0.57142857142857142857142857142857em */
+        background: transparent url("<?php render_option('chestnutty-logo', CHESTNUTTY_LOGO); ?>") no-repeat .57142857142857142857142857142857em center; /* 8/14 = 0.57142857142857142857142857142857em */
     }
     
     #content .legal section h1,
@@ -471,51 +471,51 @@ ADJUSTMENT;
         font-family: <?php echo $headerFont; ?>;
     }
     /* link colors */
-    a { color: <?php render_option('chad-link-color-normal', CHAD_LINK_COLOR_NORMAL); ?>; }
-    a:hover { color: <?php render_option('chad-link-color-hover', CHAD_LINK_COLOR_HOVER); ?>; }
+    a { color: <?php render_option('chestnutty-link-color-normal', CHESTNUTTY_LINK_COLOR_NORMAL); ?>; }
+    a:hover { color: <?php render_option('chestnutty-link-color-hover', CHESTNUTTY_LINK_COLOR_HOVER); ?>; }
     
     /* header + footer */
     #banner, #contentinfo {
-        background-color: <?php render_option('chad-banner-color-1', '') ?>;
-        background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(<?php render_option('chad-banner-color-1', CHAD_BANNER_COLOR_1); ?>), to(<?php render_option('chad-banner-color-2', CHAD_BANNER_COLOR_2); ?>));
-        background-image: -webkit-linear-gradient(left, <?php render_option('chad-banner-color-1', CHAD_BANNER_COLOR_1); ?>, <?php render_option('chad-banner-color-2', CHAD_BANNER_COLOR_2); ?>);
-        background-image: -moz-linear-gradient(left, <?php render_option('chad-banner-color-1', CHAD_BANNER_COLOR_1); ?>, <?php render_option('chad-banner-color-2', CHAD_BANNER_COLOR_2); ?>);
-        background-image: -ms-linear-gradient(left, <?php render_option('chad-banner-color-1', CHAD_BANNER_COLOR_1); ?>, <?php render_option('chad-banner-color-2', CHAD_BANNER_COLOR_2); ?>);
-        background-image: -o-linear-gradient(left, <?php render_option('chad-banner-color-1', CHAD_BANNER_COLOR_1); ?>, <?php render_option('chad-banner-color-2', CHAD_BANNER_COLOR_2); ?>);
+        background-color: <?php render_option('chestnutty-banner-color-1', '') ?>;
+        background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(<?php render_option('chestnutty-banner-color-1', CHESTNUTTY_BANNER_COLOR_1); ?>), to(<?php render_option('chestnutty-banner-color-2', CHESTNUTTY_BANNER_COLOR_2); ?>));
+        background-image: -webkit-linear-gradient(left, <?php render_option('chestnutty-banner-color-1', CHESTNUTTY_BANNER_COLOR_1); ?>, <?php render_option('chestnutty-banner-color-2', CHESTNUTTY_BANNER_COLOR_2); ?>);
+        background-image: -moz-linear-gradient(left, <?php render_option('chestnutty-banner-color-1', CHESTNUTTY_BANNER_COLOR_1); ?>, <?php render_option('chestnutty-banner-color-2', CHESTNUTTY_BANNER_COLOR_2); ?>);
+        background-image: -ms-linear-gradient(left, <?php render_option('chestnutty-banner-color-1', CHESTNUTTY_BANNER_COLOR_1); ?>, <?php render_option('chestnutty-banner-color-2', CHESTNUTTY_BANNER_COLOR_2); ?>);
+        background-image: -o-linear-gradient(left, <?php render_option('chestnutty-banner-color-1', CHESTNUTTY_BANNER_COLOR_1); ?>, <?php render_option('chestnutty-banner-color-2', CHESTNUTTY_BANNER_COLOR_2); ?>);
     }
     
     /* header menu */
     #banner .menu {
-        background-color: <?php render_option('chad-menu-color-normal-1', CHAD_MENU_COLOR_NORMAL_1) ?>;
-        background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(<?php render_option('chad-menu-color-normal-1', CHAD_MENU_COLOR_NORMAL_1); ?>), to(<?php render_option('chad-menu-color-normal-2', CHAD_MENU_COLOR_NORMAL_2); ?>));
-        background-image: -webkit-linear-gradient(top, <?php render_option('chad-menu-color-normal-1', CHAD_MENU_COLOR_NORMAL_1); ?>, <?php render_option('chad-menu-color-normal-2', CHAD_MENU_COLOR_NORMAL_2); ?>);
-        background-image: -moz-linear-gradient(top, <?php render_option('chad-menu-color-normal-1', CHAD_MENU_COLOR_NORMAL_1); ?>, <?php render_option('chad-menu-color-normal-2', CHAD_MENU_COLOR_NORMAL_2); ?>);
-        background-image: -ms-linear-gradient(top, <?php render_option('chad-menu-color-normal-1', CHAD_MENU_COLOR_NORMAL_1); ?>, <?php render_option('chad-menu-color-normal-2', CHAD_MENU_COLOR_NORMAL_2); ?>);
-        background-image: -o-linear-gradient(top, <?php render_option('chad-menu-color-normal-1', CHAD_MENU_COLOR_NORMAL_1); ?>, <?php render_option('chad-menu-color-normal-2', CHAD_MENU_COLOR_NORMAL_2); ?>);
+        background-color: <?php render_option('chestnutty-menu-color-normal-1', CHESTNUTTY_MENU_COLOR_NORMAL_1) ?>;
+        background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(<?php render_option('chestnutty-menu-color-normal-1', CHESTNUTTY_MENU_COLOR_NORMAL_1); ?>), to(<?php render_option('chestnutty-menu-color-normal-2', CHESTNUTTY_MENU_COLOR_NORMAL_2); ?>));
+        background-image: -webkit-linear-gradient(top, <?php render_option('chestnutty-menu-color-normal-1', CHESTNUTTY_MENU_COLOR_NORMAL_1); ?>, <?php render_option('chestnutty-menu-color-normal-2', CHESTNUTTY_MENU_COLOR_NORMAL_2); ?>);
+        background-image: -moz-linear-gradient(top, <?php render_option('chestnutty-menu-color-normal-1', CHESTNUTTY_MENU_COLOR_NORMAL_1); ?>, <?php render_option('chestnutty-menu-color-normal-2', CHESTNUTTY_MENU_COLOR_NORMAL_2); ?>);
+        background-image: -ms-linear-gradient(top, <?php render_option('chestnutty-menu-color-normal-1', CHESTNUTTY_MENU_COLOR_NORMAL_1); ?>, <?php render_option('chestnutty-menu-color-normal-2', CHESTNUTTY_MENU_COLOR_NORMAL_2); ?>);
+        background-image: -o-linear-gradient(top, <?php render_option('chestnutty-menu-color-normal-1', CHESTNUTTY_MENU_COLOR_NORMAL_1); ?>, <?php render_option('chestnutty-menu-color-normal-2', CHESTNUTTY_MENU_COLOR_NORMAL_2); ?>);
     }
     
     /* header menu item hover */
     #banner .menu a:hover {
-        background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(<?php render_option('chad-menu-color-hover-1', CHAD_MENU_COLOR_HOVER_1) ?>), to(<?php render_option('chad-menu-color-hover-2', CHAD_MENU_COLOR_HOVER_2) ?>));
-        background-image: -webkit-linear-gradient(top, <?php render_option('chad-menu-color-hover-1', CHAD_MENU_COLOR_HOVER_1) ?>, <?php render_option('chad-menu-color-hover-2', CHAD_MENU_COLOR_HOVER_2) ?>);
-        background-image: -moz-linear-gradient(top, <?php render_option('chad-menu-color-hover-1', CHAD_MENU_COLOR_HOVER_1) ?>, <?php render_option('chad-menu-color-hover-2', CHAD_MENU_COLOR_HOVER_2) ?>);
-        background-image: -ms-linear-gradient(top, <?php render_option('chad-menu-color-hover-1', CHAD_MENU_COLOR_HOVER_1) ?>, <?php render_option('chad-menu-color-hover-2', CHAD_MENU_COLOR_HOVER_2) ?>);
-        background-image: -o-linear-gradient(top, <?php render_option('chad-menu-color-hover-1', CHAD_MENU_COLOR_HOVER_1) ?>, <?php render_option('chad-menu-color-hover-2', CHAD_MENU_COLOR_HOVER_2) ?>);
+        background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(<?php render_option('chestnutty-menu-color-hover-1', CHESTNUTTY_MENU_COLOR_HOVER_1) ?>), to(<?php render_option('chestnutty-menu-color-hover-2', CHESTNUTTY_MENU_COLOR_HOVER_2) ?>));
+        background-image: -webkit-linear-gradient(top, <?php render_option('chestnutty-menu-color-hover-1', CHESTNUTTY_MENU_COLOR_HOVER_1) ?>, <?php render_option('chestnutty-menu-color-hover-2', CHESTNUTTY_MENU_COLOR_HOVER_2) ?>);
+        background-image: -moz-linear-gradient(top, <?php render_option('chestnutty-menu-color-hover-1', CHESTNUTTY_MENU_COLOR_HOVER_1) ?>, <?php render_option('chestnutty-menu-color-hover-2', CHESTNUTTY_MENU_COLOR_HOVER_2) ?>);
+        background-image: -ms-linear-gradient(top, <?php render_option('chestnutty-menu-color-hover-1', CHESTNUTTY_MENU_COLOR_HOVER_1) ?>, <?php render_option('chestnutty-menu-color-hover-2', CHESTNUTTY_MENU_COLOR_HOVER_2) ?>);
+        background-image: -o-linear-gradient(top, <?php render_option('chestnutty-menu-color-hover-1', CHESTNUTTY_MENU_COLOR_HOVER_1) ?>, <?php render_option('chestnutty-menu-color-hover-2', CHESTNUTTY_MENU_COLOR_HOVER_2) ?>);
     }
     
     /* header menu currently selected item */
     #banner .current_page_item a,
     #banner .current-menu-item a {
-        background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(<?php render_option('chad-menu-color-selected-1', CHAD_MENU_COLOR_SELECTED_1) ?>), to(<?php render_option('chad-menu-color-selected-2', CHAD_MENU_COLOR_SELECTED_2) ?>));
-        background-image: -webkit-linear-gradient(top, <?php render_option('chad-menu-color-selected-1', CHAD_MENU_COLOR_SELECTED_1) ?>, <?php render_option('chad-menu-color-selected-2', CHAD_MENU_COLOR_SELECTED_2) ?>);
-        background-image: -moz-linear-gradient(top, <?php render_option('chad-menu-color-selected-1', CHAD_MENU_COLOR_SELECTED_1) ?>, <?php render_option('chad-menu-color-selected-2', CHAD_MENU_COLOR_SELECTED_2) ?>);
-        background-image: -ms-linear-gradient(top, <?php render_option('chad-menu-color-selected-1', CHAD_MENU_COLOR_SELECTED_1) ?>, <?php render_option('chad-menu-color-selected-2', CHAD_MENU_COLOR_SELECTED_2) ?>);
-        background-image: -o-linear-gradient(top, <?php render_option('chad-menu-color-selected-1', CHAD_MENU_COLOR_SELECTED_1) ?>, <?php render_option('chad-menu-color-selected-2', CHAD_MENU_COLOR_SELECTED_2) ?>);
+        background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(<?php render_option('chestnutty-menu-color-selected-1', CHESTNUTTY_MENU_COLOR_SELECTED_1) ?>), to(<?php render_option('chestnutty-menu-color-selected-2', CHESTNUTTY_MENU_COLOR_SELECTED_2) ?>));
+        background-image: -webkit-linear-gradient(top, <?php render_option('chestnutty-menu-color-selected-1', CHESTNUTTY_MENU_COLOR_SELECTED_1) ?>, <?php render_option('chestnutty-menu-color-selected-2', CHESTNUTTY_MENU_COLOR_SELECTED_2) ?>);
+        background-image: -moz-linear-gradient(top, <?php render_option('chestnutty-menu-color-selected-1', CHESTNUTTY_MENU_COLOR_SELECTED_1) ?>, <?php render_option('chestnutty-menu-color-selected-2', CHESTNUTTY_MENU_COLOR_SELECTED_2) ?>);
+        background-image: -ms-linear-gradient(top, <?php render_option('chestnutty-menu-color-selected-1', CHESTNUTTY_MENU_COLOR_SELECTED_1) ?>, <?php render_option('chestnutty-menu-color-selected-2', CHESTNUTTY_MENU_COLOR_SELECTED_2) ?>);
+        background-image: -o-linear-gradient(top, <?php render_option('chestnutty-menu-color-selected-1', CHESTNUTTY_MENU_COLOR_SELECTED_1) ?>, <?php render_option('chestnutty-menu-color-selected-2', CHESTNUTTY_MENU_COLOR_SELECTED_2) ?>);
     }
     
     /* bullet list item image */
     #content-wrapper li {
-        background: transparent url("<?php render_option('chad-bullet-icon', CHAD_BULLET_ICON) ?>") no-repeat 0 0;
+        background: transparent url("<?php render_option('chestnutty-bullet-icon', CHESTNUTTY_BULLET_ICON) ?>") no-repeat 0 0;
         padding-left: 18px;
     }
     
@@ -524,13 +524,13 @@ ADJUSTMENT;
     #commentform #submit,
     #contact #contact-create,
     #sidebar .online-poll .action input {
-        background-color: <?php render_option('chad-button-color', CHAD_BUTTON_COLOR) ?>;
-        border-color: <?php render_option('chad-button-color', CHAD_BUTTON_COLOR) ?>;
+        background-color: <?php render_option('chestnutty-button-color', CHESTNUTTY_BUTTON_COLOR) ?>;
+        border-color: <?php render_option('chestnutty-button-color', CHESTNUTTY_BUTTON_COLOR) ?>;
     }
     
     /* button color */
     #content .more-link {
-        background-color: <?php render_option('chad-button-color', CHAD_BUTTON_COLOR) ?>;
+        background-color: <?php render_option('chestnutty-button-color', CHESTNUTTY_BUTTON_COLOR) ?>;
     }
 <?php echo $subHeaderAdjustment; ?>
 </style>

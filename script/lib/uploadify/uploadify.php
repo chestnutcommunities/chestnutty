@@ -1,7 +1,7 @@
 <?php
 
 // addition from chestnut adsense
-function chestnut_adsense_uploadify_create_guid() {
+function chestnutty_uploadify_create_guid() {
     $result = '';
 
     if (function_exists('com_create_guid')) {
@@ -58,7 +58,7 @@ if (! empty($_FILES)) {
         echo 'OVERSIZED';
     }
     else {
-        $guid = chestnut_adsense_uploadify_create_guid();
+        $guid = chestnutty_uploadify_create_guid();
         $guid = str_replace('{', '', $guid);
         $guid = str_replace('}', '', $guid);
         $guid = strtolower($guid);

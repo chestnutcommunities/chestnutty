@@ -28,6 +28,6 @@ endif;
 ?>
     <?php get_ad('300x250'); ?>
     <div class="tag-cloud">
-        <?php the_widget( 'WP_Widget_Tag_Cloud', 'title='.__('Tags', 'chestnut-adsense')); ?>  
+        <?php the_widget( 'WP_Widget_Tag_Cloud', 'title='.__('Tags', 'chestnutty')); ?>  
     </div>
 </div>
