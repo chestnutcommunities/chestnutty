@@ -1,0 +1,90 @@
+
+/* Form */
+
+.form
+{
+    margin-bottom: 1em;
+}
+.form .column
+{
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    margin-right: .8em;
+}
+.form .row
+{
+    margin: .4em 0;
+}
+.form .row label
+{
+    width: 180px;
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    vertical-align: top;
+    color: #555;
+    margin: .2em 0;
+}
+
+.form .checkbox label
+{
+    width: auto;
+}
+.form .row .thumbnail
+{
+    width: 178px;
+    height: 151px;
+}
+.status ul, .error-list ul
+{
+    list-style: disc;
+    padding-left: 40px;
+}
+.back
+{
+    margin-top: 1em;
+}
+.form .radio label
+{
+    vertical-align: top;
+    padding-top: 3px;
+}
+
+.form .radio-list label
+{
+    vertical-align: middle;
+    padding-top: 0;
+}
+.form .radio-list
+{
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+}
+.form .radio-list ul
+{
+    margin: .4em 0 0;
+}
+
+.form .radio-list li
+{
+    list-style: none;
+}
+.form .remove-file
+{
+    background: transparent url('image/cancel.png') no-repeat 0 0;
+    width: 16px;
+    height: 16px;
+    border: none 0;
+    padding: 0;
+}
+.form .file label
+{
+    vertical-align: top;
+}
+.form .row label .note
+{
+    font-size: 75%;
+    color: #666;
+}
