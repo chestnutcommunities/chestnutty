@@ -1,114 +1,86 @@
 <?php
     get_header();
 ?>
-<div id="content-wrapper">
-<div id="content" class="content" role="main">
-<?php
-    get_ad('468x60');
-    
-    while (have_posts()) : the_post();
-        if (is_single() || is_page()):
-?>
-    <div id="post-<?php the_ID(); ?>" <?php post_class('single'); ?>>
-<?php
-        else:
-?>
-    <div id="post-<?php the_ID(); ?>" <?php post_class('post-item'); ?>>
-<?php
-        endif;
-        if (!is_single() && !is_page()):
-            if (function_exists('wp_rp_get_post_thumbnail_img')) {
-                $id = get_the_id();
-                $img = wp_rp_get_post_thumbnail_img(get_post($id));
-                echo '<div class="thumbnail">'.$img.'</div>';
-            }
-        endif;
-        
-        if (!is_page()):
-?>
-        <div class="post-info">
-            <h1 class="entry-title">
-                <a href="<?php the_permalink(); ?>" title="<?php printf(esc_attr__( 'Permalink to %s', 'chestnutty'), the_title_attribute('echo=0' )); ?>" rel="bookmark">
-                    <?php if (trim(get_the_title()) != '') { the_title(); } else { echo '&nbsp;'; }; ?>
-                </a>
-            </h1>
-            <div class="meta">  
-                <?php _e('Date', 'chestnutty'); ?>: <?php the_time(get_option('date_format')); ?>
-            </div>
-<?php
-        endif; // if (!is_page()):
-        
-        // Render the content of the post
-?>
-            <div class="post-content">
-<?php 
-        if (!is_single() && !is_page()):
-            the_excerpt();
-        else: 
-            if (has_post_thumbnail()):
-?>
-                <div class="feature-image">
-                    <?php the_post_thumbnail('full'); ?>
+        <div class="page-grid">
+            <section class="feature-content">
+                <div class="active item feature-content-item">
+                    <div class="container">
+                        <h1><?php bloginfo('name'); ?></h1>
+                        <p>
+                            <?php bloginfo('description'); ?>
+                        </p>
+                    </div>
                 </div>
+            </section>
+            <div class="container">
+                <div class="page-content">
+                    <section class="feature-post">
+                        <header class="feature-post-header">
+                            <h2 class="feature-post-title">Latest Posts</h2>
+                        </header>
+                        <ul class="feature-post-list row-fluid">
 <?php
-            endif;
-            // render content of the post
-            the_content();
-        endif; // if (!is_single() && !is_page()):
-?>
-            </div>
-<?php
-        // Render supporting links. Read more, Leave a comment etc.
-        if (!is_single() && !is_page()):
-?>
-            <div class="read-more">
-                <a href="<?php the_permalink() ?>#more" class="more-link"><?php _e('Read more', 'chestnutty'); ?></a>
-            </div>
-            <div class="add-comment">
-                <?php comments_popup_link(__('No Comments', 'chestnutty'), __('1 Comment', 'chestnutty'), __('% Comments', 'chestnutty')); ?>
-            </div>  
-<?php
-        else:
-            wp_link_pages(array('before' => '<div class="page-link">'.__( 'Pages:', 'chestnutty' ), 'after' => '</div>'));
-        endif; // if (!is_single() && !is_page()):
+                            $latestPosts = new WP_Query();
+                            $latestPosts->query('showposts=3');
 
-        // Render tags for the post in a list
-        if (get_the_tag_list()):
-?>  
-            <div class="tag-list">  
-                <?php _e('Tags', 'chestnutty'); ?>: <?php echo get_the_tag_list('', ', ', ''); ?>
-            </div>  
-<?php
-        endif; // if (get_the_tag_list()):
+                            while ($latestPosts->have_posts()): $latestPosts->the_post();
 ?>
+                            <li class="post-item span4">
+                               <a class="post-thumbnail-link" href="<?php the_permalink(); ?>" title="<?php printf(esc_attr__( 'Permalink to %s', 'chestnutty'), the_title_attribute('echo=0' )); ?>" rel="bookmark">
+<?php
+                                   if (function_exists('wp_rp_get_post_thumbnail_img')):
+                                       $id = get_the_id();
+                                       $img = wp_rp_get_post_thumbnail_img(get_post($id));
+                                       echo $img;
+                                   endif;
+?>
+                                </a>
+                                <div class="post-caption">
+                                    <h3 class="post-title">
+                                       <a href="<?php the_permalink(); ?>" title="<?php printf(esc_attr__( 'Permalink to %s', 'chestnutty'), the_title_attribute('echo=0' )); ?>" rel="bookmark">
+<?php
+                                           $title = get_the_title();
+                                           echo chestnutty_string_limit_words($title, 8);
+?>
+                                       </a>
+                                    </h3>
+                                    <div class="post-meta">
+                                        <p class="post-date">
+                                            <span class="icon-calendar"></span> <?php the_time(get_option('date_format')); ?>
+                                        </p>
+                                        <p class="post-excerpt">
+<?php
+                                           $excerpt = get_the_excerpt();
+                                           echo chestnutty_string_limit_words($excerpt, 28);
+?>
+                                           <a href="<?php the_permalink(); ?>" class="read-more">Read more</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </li>
+<?php
+                            endwhile; // while ($latestPosts->have_posts()): $latestPosts->the_post();
+
+                            wp_reset_query();
+?>
+                        </ul>
+                    </section>
+<?php
+                    chestnutty_get_hot_deals();
+?>
+                    <section class="ad-panel">
+                        <div class="row-fluid">
+                            <div class="ad-content offset2 span8">
+                                <div class="row-fluid">
+                                    <?php chestnutty_get_ad(200, 90, 'span6'); ?>
+                                    <?php chestnutty_get_ad(200, 90, 'span6'); ?>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
         </div>
-    </div>  
-<?php
-    endwhile; // while ( have_posts() ) : the_post();
-    
-    // If there are more than one page of posts, display nav links
-    if ($wp_query->max_num_pages > 1):
-?>
-<nav id="nav-below">
-    <ul>
-        <li><?php next_posts_link(__('Older posts', 'chestnutty')); ?></li>
-        <li><?php previous_posts_link(__('Newer posts', 'chestnutty')); ?></li>
-    </ul>
-</nav>
-<?php
-    endif; // if ($wp_query->max_num_pages > 1):
-    
-    get_ad('468x15');
-    
-    wp_reset_query();
-    
-    comments_template( '', true );
-?>
-</div>
-<?php
-    get_sidebar();
-?>
-</div>
 <?php
     get_footer();
 ?>

@@ -1,40 +1,33 @@
 <!DOCTYPE html>
-<!--[if lte IE 7 ]><html lang="en" class="ie7"><![endif]-->
-<!--[if IE 8 ]><html lang="en" class="ie8"><![endif]-->
-<!--[if (gt IE 8)|!(IE)]><!--> <html lang="en"> <!--<![endif]-->
+<html>
     <head>
-        <meta charset="utf-8" />
         <title>
-            <?php
-                wp_title('-', true, 'right');
-                bloginfo('name');
-            ?>
-        </title>
-        <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo('stylesheet_url'); ?>" />
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        <script src="<?php bloginfo('template_directory'); ?>/script/lib/respond.js"></script>
-        <!--[if lte IE 8]>
-        <script src="<?php bloginfo('template_directory'); ?>/script/lib/html5.js"></script>
-        <![endif]-->
-        <?php
-            wp_enqueue_script('jquery');
-            wp_head();
-            flush();
-        ?>
+<?php
+        wp_title('-', true, 'right');
+        bloginfo('name');
+?>
+        </title> 
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<?php
+        wp_enqueue_style('bootstrap-css', get_template_directory_uri().'/css/bootstrap.min.css');
+        wp_enqueue_style('theme-stylesheet', get_bloginfo('stylesheet_url'));
+        wp_head();
+?>
     </head>
     <body <?php body_class(); ?>>
-        <div id="body-inner">
-            <div id="wrapper">
-                <header id="banner" role="banner">
-                    <div class="banner-inner">
-                        <hgroup>
-                            <h1><a href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a></h1>
-                            <h2><?php bloginfo('description'); ?></h2>
-                        </hgroup>
+        <div class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="brand" href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a>
+                    <div class="nav-collapse collapse">
+                        <?php wp_nav_menu(array('menu_class' => 'nav')); ?>
                     </div>
-                    <nav class="menu">
-                        <?php
-                            wp_nav_menu();
-                        ?>
-                    </nav>
-                </header>
+                </div>
+            </div>
+        </div>

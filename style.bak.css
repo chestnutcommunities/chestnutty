@@ -6,6 +6,7 @@
  */
 
 /* Base font size: 12px */
+
 @font-face {
     font-family: 'socialicoregular';
     src: url('font/socialico/socialico-webfont.eot');
@@ -38,10 +39,6 @@ h2 {
 /*
  * Nav bar
  */
-/* Remove this later */
-.navbar {
-    display: block;
-}
 .navbar .brand {
     font-size: 16px;
     padding: 12.5px 20px;
@@ -65,6 +62,9 @@ h2 {
  */
 .page-grid {
     background: #f5f5f5 url('img/jean.png') repeat 0 0;
+}
+.page-content {
+    padding: 6px;
 }
 .feature-content-item {
     position: relative;
@@ -110,7 +110,6 @@ h2 {
 }
 .feature-post .post-title,
 .sidebar-item .post-title,
-.related-post .post-title,
 .archive .post-title {
     font-weight: 200;
     font-size: 17px;
@@ -122,7 +121,6 @@ h2 {
     padding: 9px;
     color: #555555;
 }
-.related-post .post-caption,
 .archive .post-caption {
     padding: 0;
 }
@@ -184,8 +182,7 @@ h2 {
     display: inline-block;
     margin: 8px;
 }
-.archive .post-thumbnail-link,
-.related-post .post-thumbnail-link {
+.archive .post-thumbnail-link {
     margin-right: 0;
 }
 .post-thumbnail-link img {
@@ -206,14 +203,11 @@ h2 {
 .feature-post .post-meta p,
 .sidebar-item .post-meta,
 .sidebar-item .post-meta p,
-.related-post .post-meta,
-.related-post .post-meta p,
 .archive .post-meta,
 .archive .post-meta p {
     margin: 4px 0;
 }
-.feature-post .post-date,
-.related-post .post-date {
+.feature-post .post-date {
     color: #888;
 }
 .feature-post .feature-post-title {
@@ -222,7 +216,6 @@ h2 {
 }
 .feature-post .feature-post-list,
 .sidebar-item .post-list,
-.related-post .post-list,
 .archive .post-list {
     margin: 0;
     list-style: none;
@@ -238,8 +231,7 @@ h2 {
     margin-right: 4px;
 }
 .feature-post .btn-amazon,
-.sidebar-item .btn-amazon,
-.main-post .btn-amazon {
+.sidebar-item .btn-amazon {
     width: 120px;
     height: 28px;
     background: transparent url('img/buy-from-amazon.gif') no-repeat 0 0;
@@ -263,30 +255,26 @@ h2 {
 .related-post .post-date {
     color: #888;
 }
+.sidebar .ad {
+    text-align: center;
+}
 /*
  * Content
  */
-.page-content {
+.main-post,
+.sidebar-item,
+.ad-content {
     border-radius: 2px;
     border: solid 1px #bbb;
     padding: 10px;
     background-color: #f5f5f5;
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .15);
-    margin: 6px;
-}
-.main-post {
-    margin-bottom: 16px;
-}
-.main-post .ad {
-    margin: 8px 0;
+    margin-bottom: 6px;
 }
 .ad-content .ad {
     text-align: center;
     display: inline-block;
     margin: 4px 0;
-}
-.sidebar .tag-cloud {
-    margin: 8px 0;
 }
 .main-post .main-post-title,
 .archive .archive-title {
@@ -332,38 +320,17 @@ h2 {
 .main-post li {
     margin: 4px 0;
 }
-.main-post .social-title,
-.main-post .related-post-title {
-    font-weight: bold;
+.main-post-content .feature-image {
+    text-align: center;
 }
 .main-post-content .wp-post-image {
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .15);
     vertical-align: middle;
     border: solid 1px #ddd;
     border-radius: 3px;
-    margin-bottom: 10px;
+    margin-bottom: 8.5px;
 }
-.image-list {
-    margin: 10px 0;
-}
-.image-list .image-item {
-    margin: 8px 0;
-}
-.image-list .image-item-thumbnail {
-    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .15);
-    vertical-align: middle;
-    border: solid 1px #ddd;
-    border-radius: 3px;
-    -webkit-transition: all .2s ease-in-out;
-    -moz-transition: all .2s ease-in-out;
-    -o-transition: all .2s ease-in-out;
-    -ms-transition: all .2s ease-in-out;
-    transition: all .2s ease-in-out;
-}
-.image-list .image-item-thumbnail:hover {
-    border-color: #aaa;
-    box-shadow: 0 1px 6px 0 rgba(0, 0, 0, .15);
-}
+
 /*
  * Social icons
  */
@@ -501,9 +468,6 @@ h2 {
         font-size: 26px;
         line-height: 29px;
     }
-    .navbar {
-        display: none;
-    }
     .navbar .nav>li>a {
         padding: 13px 16.25px;
     }
@@ -516,22 +480,24 @@ h2 {
     .feature-content-item p {
         font-size: 24px;
     }
-    .page-content {
-        padding: 12px;
-        margin: 9px;
+    .main-post,
+    .sidebar-item,
+    .ad-content {
+        padding: 14px;
+        margin-bottom: 9px;
     }
     .main-post h2,
     .main-post h3 {
         margin-top: 22px;
     }
-    .main-post {
-        margin-bottom: 0;
-    }
     .main-post li {
         margin: 5px 0;
     }
     .main-post-content .feature-image {
-        margin-bottom: 11px;
+        text-align: left;
+    }
+    .main-post-content .wp-post-image {
+        margin-bottom: 9px;
     }
     .main-post .main-post-header,
     .archive .archive-header {
@@ -549,18 +515,10 @@ h2 {
         margin-bottom: 9px;
         padding-bottom: 9px;
     }
-    .main-post .opening {
-        float: left;
-        margin: 0 8px 8px 0;
-    }
     .main-post-content p {
         padding-bottom: 9px;
     }
-    .image-list .image-item {
-        margin: 4px;
-    }
-    .archive .post-caption,
-    .related-post .post-caption {
+    .archive .post-caption {
         padding: 9px;
     }
     .feature-post .post-item {
@@ -578,6 +536,9 @@ h2 {
     .feature-post .post-item:hover img {
         opacity: 1;
     }
+    .page-content {
+        padding: 8px 0;
+    }
     .feature-post .feature-post-title {
         font-size: 29px;
         line-height: 37px;
@@ -585,18 +546,15 @@ h2 {
     }
     .feature-post .post-title,
     .sidebar-item .post-title,
-    .related-post .post-title,
     .archive .post-title {
         font-size: 19px;
         line-height: 21px;
     }
     .feature-post .post-meta,
-    .feature-post .post-meta p,
     .sidebar-item .post-meta,
-    .sidebar-item .post-meta p,
-    .related-post .post-meta,
-    .related-post .post-meta p,
     .archive .post-meta,
+    .feature-post .post-meta p,
+    .sidebar-item .post-meta p,
     .archive .post-meta p {
         margin: 5px 0;
     }
@@ -652,7 +610,10 @@ h2 {
         padding: 14px 17.5px;
     }
     .page-grid {
-        /*padding-top: 45px;*/
+        padding-top: 45px;
+    }
+    .page-content {
+        padding: 10px 0;
     }
     .feature-post .post-item {
         margin-left: 10px;
@@ -666,9 +627,11 @@ h2 {
     .feature-content-item p {
         font-size: 26px;
     }
-    .page-content {
-        padding: 16px;
-        margin: 10px;
+    .main-post
+    .sidebar-item,
+    .ad-content {
+        padding: 20px;
+        margin-bottom: 10px;
     }
     .main-post h2,
     .main-post h3 {
@@ -685,15 +648,6 @@ h2 {
     .main-post .social {
         margin-bottom: 10px;
         padding-bottom: 10px;
-    }
-    .main-post .ad {
-        margin: 9px 0;
-    }
-    .main-post .opening {
-        margin: 0 9px 9px 0;
-    }
-    .sidebar .tag-cloud {
-        margin: 9px 0;
     }
     .social .social-link {
         font-size: 32px;
@@ -712,23 +666,19 @@ h2 {
         line-height: 40px;
         margin: 12px 0;
     }
-    .archive .post-thumbnail-link img,
-    .related-post .post-thumbnail-link img {
+    .archive .post-thumbnail-link img {
         width: 100%;
     }
     .feature-post .post-title,
     .sidebar-item .post-title,
-    .related-post .post-title,
     .archive .post-title {
         font-size: 20px;
         line-height: 23px;
     }
     .feature-post .post-meta,
-    .feature-post .post-meta p,
     .sidebar-item .post-meta,
+    .feature-post .post-meta p,
     .sidebar-item .post-meta p,
-    .related-post .post-meta,
-    .related-post .post-meta p,
     .archive .post-meta {
         margin: 5px 0;
     }

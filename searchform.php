@@ -1,4 +1,6 @@
-<form role="search" method="get" id="searchform" action="<?php echo home_url( '/' ); ?>">
-    <input type="text" value="" name="s" id="s" />
-    <input type="submit" id="searchsubmit" value="Search" />
+<form class="form-search" method="get" action="<?php echo home_url( '/' ); ?>">
+    <div class="input-append">
+        <input type="text" class="search-query">
+        <button type="submit" class="btn">Search</button>
+    </div>
 </form>
